@@ -1,0 +1,38 @@
+
+# ------------ create
+
+array([1,2,3])
+
+arange(start, stop, step, dtype=float)
+ones
+zeros
+linspace(start, stop, elements, endpoint:Bool, retsetp:Bool, dtype:float)
+indices(shape)
+
+rand(d0, d1, ...)
+randint(lo, high, size:int|tuple)
+
+# ----------- read
+
+frombuffer
+fromstring('1 2 3 4', dtype=int, count=int, sep=' ')
+fromfile(file, ...) # efficient with binary
+loadtxt
+genfromtxt # loadtext + added features
+
+# ----------- indexing
+
+arr[i:j,k:l]
+
+array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10],
+       [11, 12, 13, 14, 15]])
+
+
+a[[0,1,2],[2,2,2]] # array([ 3,  8, 13])
+a[[0,0,0],[2,2,2]] # array([3, 3, 3])
+a[[0,0,0],2] # array([3, 3, 3])
+
+
+
+

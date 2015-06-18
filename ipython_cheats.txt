@@ -1,0 +1,133 @@
+
+# list all magics
+%lsmagic
+
+# run external script
+%run my/script.py
+%run -i my/script.py # with -i variables in current session are available to the executed script
+Anyways any vars defined in executed script ara available in ipython seesion upon script execution
+
+%run -d ./script # with debug
+%run -d -b29 script.py # debug with break point at line 29
+%run -p ./script # with profiling 
+%run -t ./script # with timing 
+
+# show anything available
+\ then tab
+
+
+# benchmark
+%timeit [x*x for x in range(100000)]
+%run -t ./script
+
+# profiling
+%run -p ./script
+
+# Interactive computing with Pylab
+%pylab
+x = linspace(-10., 10., 1000)
+plot(x, sin(x))
+
+# using notebook
+ipython notebook
+ipython qtconsole
+
+By pressing Shift + Enter, all the code within
+the cell is executed in the current IPython interactive namespace. The output then
+appears in an output area right below the input cell, and a new input cell is created
+below. By pressing Ctrl + Enter, no new input cell is created and only the output is
+shown. Typically, we will use the latter command for quick in-place experiments when
+we just need to evaluate some Python expression and we do not want to save the cell's
+output in the notebook
+We can display the list of all keyboard shortcuts by pressing Ctrl + M, then H. Most
+notebook commands are executed with a sequence of keystrokes that begin with Ctrl
++ M, followed by a single key press.
+
+
+# Cell magics
+%lsmagic #  return all magics
+interesting: 
+%%file test.txt
+lines to save in file following
+
+
+# Customizing IPython
+ipython profile create [optional_profile_name]
+
+This will create a folder named profile_default in the ~/.ipython or ~/.config/
+ipython directory. The file ipython_config.py in this folder contains preferences
+about IPython. You can create different profiles with different names using
+ipython profile create profilename, and then launch IPython with ipython
+--profile=profilename to use that profile.
+The ~ directory is your home directory, for example, something like /home/
+yourname on Unix, or C:\Users\yourname or C:\Documents and Settings\
+yourname on Windows.
+
+# bookmark locations on computer
+
+%bookmark some_name # bookmarks current dir so we can navigate back later
+cd some_name # navigate back if dir changed
+%bookmark -l # list defined bookmarks
+%bookmark -d some_name # delete some_name bookmarks
+
+%bookmark? # show all options
+
+# Accessing the system shell from IPython
+
+files = !ls -1 -S | grep edges
+!head -n5 {files[0]}
+%alias largest ls -1sSh | grep %s
+largest circles
+%store largest # saves largest alias forever in curent profile
+%store -r # recover the stored aliases and variables in a later session
+
+# History
+%history
+%hist
+%hist -g grepexp # returns from history only lines matching grepexp
+Ctrl + R then type # find in history lines matching what's typed
+
+# Importing code in IPython
+%paste
+IPython automatically
+dedents the code and removes the > and + characters at the beginning of the lines,
+allowing to paste the diff and doctest files directly from e-mails.
+
+# Editing code in IPython
+%edit file.py # opens an editor. after editing code inside file is executed
+              # which editor to start is read from EDITOR system variable
+%edit param may be: 
+	A Python script filename
+	A string variable containing Python code
+	A range of line numbers, with the same syntax of %history, which was used previously
+	Any Python object, in which case IPython will try to open the editor with the file where this object has been defined
+
+# Source code introspection
+var?
+var??
+%psource
+%pfile
+%pdoc
+%pdef
+
+# Using the interactive debugger
+%pdb
+%debug
+ipython --pdb
+%run -d ./script
+%run -d -b29 script.py # debug with break points
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
